@@ -7,6 +7,7 @@ This document defines the strategy for versioning, deprecating, and migrating th
 ## 1. Versioning Approach
 
 ### URI-Based Versioning (Path)
+
 Chioma uses **URI Versioning** for major API versions. This approach makes it easy to track versions in server logs and enables side-by-side deployment of multiple versions.
 
 - **v1 (Current):** `https://api.chioma.app/api/...`
@@ -34,6 +35,7 @@ The full version (e.g., `1.2.3`) is documented in `API-CHANGELOG.md` and reflect
 Maintaining backward compatibility is our highest priority to protect client integrations.
 
 ### Non-Breaking Changes (SAFE)
+
 - Adding new endpoints.
 - Adding new optional request parameters or headers.
 - Adding new properties to response JSON.
@@ -41,6 +43,7 @@ Maintaining backward compatibility is our highest priority to protect client int
 - Adding new values to an Enum (clients must handle unknown values gracefully).
 
 ### Breaking Changes (UNSAFE)
+
 - Removing or renaming endpoints or parameters.
 - Changing the data type of a property (e.g., String to Integer).
 - Making an optional parameter required.
@@ -54,12 +57,12 @@ Maintaining backward compatibility is our highest priority to protect client int
 
 Every API version progresses through the following stages:
 
-| Stage | Description |
-|---|---|
-| **Experimental** | Internal testing/Beta. Subject to change without notice. |
-| **Stable (Active)** | Current production version. Fully supported with backward compatibility. |
-| **Deprecated** | A newer version exists. Support continues but removal is scheduled. |
-| **End-of-Life (EOL)** | Version is no longer supported and may be removed from servers. |
+| Stage                 | Description                                                              |
+| --------------------- | ------------------------------------------------------------------------ |
+| **Experimental**      | Internal testing/Beta. Subject to change without notice.                 |
+| **Stable (Active)**   | Current production version. Fully supported with backward compatibility. |
+| **Deprecated**        | A newer version exists. Support continues but removal is scheduled.      |
+| **End-of-Life (EOL)** | Version is no longer supported and may be removed from servers.          |
 
 ---
 
@@ -70,9 +73,9 @@ When a breaking change is unavoidable, we follow a strict deprecation process.
 1.  **Notice Period:** A minimum of **6 months** notice is given before a version or endpoint is removed.
 2.  **OpenAPI Flag:** Mark the endpoint with `deprecated: true` in the controller.
 3.  **Deprecation Headers:** Every response from a deprecated endpoint carries:
-    -   `Deprecated: true`
-    -   `Sunset: [Date]` (The scheduled EOL date in HTTP-date format).
-    -   `Link: <replacement-url>; rel="successor-version"`
+    - `Deprecated: true`
+    - `Sunset: [Date]` (The scheduled EOL date in HTTP-date format).
+    - `Link: <replacement-url>; rel="successor-version"`
 4.  **Logging:** Backend logs should track the usage of deprecated endpoints to identify high-impact removals.
 
 ---
@@ -90,10 +93,10 @@ When a breaking change is unavoidable, we follow a strict deprecation process.
 
 We communicate version changes through:
 
--   **API-CHANGELOG.md:** The source of truth for all changes.
--   **Developer Portal:** High-level announcements on the dashboard.
--   **Email/Discord:** Bulletins sent to developers using affected keys.
--   **OpenAPI spec:** Real-time updates at `/api/docs`.
+- **API-CHANGELOG.md:** The source of truth for all changes.
+- **Developer Portal:** High-level announcements on the dashboard.
+- **Email/Discord:** Bulletins sent to developers using affected keys.
+- **OpenAPI spec:** Real-time updates at `/api/docs`.
 
 ---
 
@@ -120,6 +123,6 @@ When introducing changes that affect versioning:
 
 ## 10. Tools & Resources
 
--   **OpenAPI/Swagger:** [Swagger UI](/api/docs)
--   **Changelog:** [API-CHANGELOG.md](./API-CHANGELOG.md)
--   **Standards:** [API-STANDARDS.md](./API-STANDARDS.md)
+- **OpenAPI/Swagger:** [Swagger UI](/api/docs)
+- **Changelog:** [API-CHANGELOG.md](./API-CHANGELOG.md)
+- **Standards:** [API-STANDARDS.md](./API-STANDARDS.md)

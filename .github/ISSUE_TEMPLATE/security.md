@@ -28,7 +28,7 @@ assignees: ""
 - [ ] Data Exposure
 - [ ] Denial of Service
 - [ ] Dependency Vulnerability
-- [ ] Other: ****\_\_\_****
+- [ ] Other: \***\*\_\_\_\*\***
 
 ## 🔍 Affected Component
 

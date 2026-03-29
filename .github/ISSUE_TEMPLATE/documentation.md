@@ -21,7 +21,7 @@ assignees: ""
 - [ ] API Documentation
 - [ ] Architecture Documentation
 - [ ] Setup Guide
-- [ ] Other: ****\_\_\_****
+- [ ] Other: \***\*\_\_\_\*\***
 
 ## 📋 Content Outline
 

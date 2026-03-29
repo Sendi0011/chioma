@@ -25,13 +25,13 @@ Welcome to the Chioma backend documentation hub. This index covers all aspects o
 
 ## Getting Started
 
-| Document | Summary |
-|---|---|
-| [Quick Start](./setup/QUICK_START.md) | Run the backend locally in under 5 minutes |
-| [Demo Credentials](./setup/DEMO_CREDENTIALS.md) | Pre-seeded accounts for local testing |
-| [Demo Login](./setup/DEMO_LOGIN.md) | Step-by-step demo login guide |
-| [Neon DB Credentials](./setup/GET_NEON_CREDENTIALS.md) | Connect to Neon serverless PostgreSQL |
-| [Seeding](./setup/SEEDING_COMPLETE.md) | Seed scripts and initial data |
+| Document                                               | Summary                                    |
+| ------------------------------------------------------ | ------------------------------------------ |
+| [Quick Start](./setup/QUICK_START.md)                  | Run the backend locally in under 5 minutes |
+| [Demo Credentials](./setup/DEMO_CREDENTIALS.md)        | Pre-seeded accounts for local testing      |
+| [Demo Login](./setup/DEMO_LOGIN.md)                    | Step-by-step demo login guide              |
+| [Neon DB Credentials](./setup/GET_NEON_CREDENTIALS.md) | Connect to Neon serverless PostgreSQL      |
+| [Seeding](./setup/SEEDING_COMPLETE.md)                 | Seed scripts and initial data              |
 
 **Quickest path to running locally:**
 
@@ -78,12 +78,13 @@ The API will be available at `http://localhost:5000/api` and Swagger UI at `http
 
 ## Architecture
 
-| Document | Summary |
-|---|---|
-| [Dependency Graph](./architecture/DEPENDENCY_GRAPH.md) | Module dependency overview |
+| Document                                                                   | Summary                                       |
+| -------------------------------------------------------------------------- | --------------------------------------------- |
+| [Dependency Graph](./architecture/DEPENDENCY_GRAPH.md)                     | Module dependency overview                    |
 | [Scalability & Performance](./architecture/scalability-and-performance.md) | Horizontal scaling, caching layers, DB tuning |
 
 **Key design decisions:**
+
 - NestJS modular monolith with domain-scoped modules (`auth`, `agreements`, `payments`, …)
 - URI-based API versioning (`/api/v1/...`); `defaultVersion: '1'`
 - JWT + Stellar SEP-0010 dual auth
@@ -94,8 +95,8 @@ The API will be available at `http://localhost:5000/api` and Swagger UI at `http
 
 ## Database
 
-| Document | Summary |
-|---|---|
+| Document                                                 | Summary                                 |
+| -------------------------------------------------------- | --------------------------------------- |
 | [Performance Indexes](./database/PERFORMANCE_INDEXES.md) | Index strategy for high-traffic queries |
 
 Migrations live in `backend/migrations/`. Run with:
@@ -115,42 +116,43 @@ pnpm run migration:generate  # generate migration from entity changes
 | [Blockchain Integration Guide](./blockchain/BLOCKCHAIN-INTEGRATION-GUIDE.md) | SDK usage, accounts, transactions, wallets, security |
 | [Stellar Auth (SEP-0010)](./blockchain/stellar-auth.md) | Wallet-based authentication flow |
 | [Anchor Integration Guide](./blockchain/anchor-integration-guide.md) | Fiat on/off-ramp via Stellar anchors |
-| [Anchor Implementation](./blockchain/ANCHOR_IMPLEMENTATION.md) | Internal implementation notes |
-| [Anchor Integration](./blockchain/anchor-integration.md) | Additional anchor setup details |
-| [Payment Gateway](./blockchain/payment-gateway-integration.md) | Stellar payment processing |
+| [Anchor Implementation](./blockchain/ANCHOR_IMPLEMENTATION.md)       | Internal implementation notes        |
+| [Anchor Integration](./blockchain/anchor-integration.md)             | Additional anchor setup details      |
+| [Payment Gateway](./blockchain/payment-gateway-integration.md)       | Stellar payment processing           |
 
 ---
 
 ## Caching
 
-| Document | Summary |
-|---|---|
-| [Overview](./caching/README.md) | Cache architecture |
-| [Strategy](./caching/strategy.md) | TTL policies, cache keys |
-| [Invalidation](./caching/invalidation.md) | Cache invalidation patterns |
-| [Monitoring](./caching/monitoring.md) | Cache hit rates and observability |
-| [Examples](./caching/examples.md) | Code examples using `@Cached` decorator |
-| [Troubleshooting](./caching/troubleshooting.md) | Common cache issues |
+| Document                                        | Summary                                 |
+| ----------------------------------------------- | --------------------------------------- |
+| [Overview](./caching/README.md)                 | Cache architecture                      |
+| [Strategy](./caching/strategy.md)               | TTL policies, cache keys                |
+| [Invalidation](./caching/invalidation.md)       | Cache invalidation patterns             |
+| [Monitoring](./caching/monitoring.md)           | Cache hit rates and observability       |
+| [Examples](./caching/examples.md)               | Code examples using `@Cached` decorator |
+| [Troubleshooting](./caching/troubleshooting.md) | Common cache issues                     |
 
 ---
 
 ## Queues
 
-| Document | Summary |
-|---|---|
-| [Bull Queues](./queues/BULL_QUEUES_IMPLEMENTATION.md) | Queue setup, workers, job types |
-| [Implementation Summary](./queues/IMPLEMENTATION_SUMMARY.md) | Summary of queue usage |
+| Document                                                     | Summary                         |
+| ------------------------------------------------------------ | ------------------------------- |
+| [Bull Queues](./queues/BULL_QUEUES_IMPLEMENTATION.md)        | Queue setup, workers, job types |
+| [Implementation Summary](./queues/IMPLEMENTATION_SUMMARY.md) | Summary of queue usage          |
 
 ---
 
 ## Deployment
 
-| Document | Summary |
-|---|---|
-| [Deployment Guide](./deployment/DEPLOYMENT.md) | Step-by-step deployment |
+| Document                                             | Summary                                    |
+| ---------------------------------------------------- | ------------------------------------------ |
+| [Deployment Guide](./deployment/DEPLOYMENT.md)       | Step-by-step deployment                    |
 | [Production Setup](./deployment/PRODUCTION_SETUP.md) | Environment config, secrets, health checks |
 
 Docker Compose files:
+
 - `docker-compose.yml` — local development
 - `docker-compose.production.yml` — production
 - `docker-compose.monitoring.yml` — Prometheus + Grafana
@@ -160,12 +162,13 @@ Docker Compose files:
 
 ## Security
 
-| Document | Summary |
-|---|---|
-| [Encryption](./encryption.md) | Field-level encryption for sensitive data |
-| [Tenant Screening Compliance](./compliance/TENANT_SCREENING_COMPLIANCE.md) | FCRA / compliance notes |
+| Document                                                                   | Summary                                   |
+| -------------------------------------------------------------------------- | ----------------------------------------- |
+| [Encryption](./encryption.md)                                              | Field-level encryption for sensitive data |
+| [Tenant Screening Compliance](./compliance/TENANT_SCREENING_COMPLIANCE.md) | FCRA / compliance notes                   |
 
 Security features active in every request:
+
 - Helmet security headers
 - CSRF token validation
 - Request size limits (1 MB JSON / URL-encoded)
@@ -177,22 +180,22 @@ Security features active in every request:
 
 ## Integrations
 
-| Document | Summary |
-|---|---|
+| Document                                                                 | Summary                         |
+| ------------------------------------------------------------------------ | ------------------------------- |
 | [Tenant Screening](./integrations/TENANT_SCREENING_PROVIDER_RESEARCH.md) | Third-party screening providers |
-| [Tenant Screening Integration](./api/TENANT_SCREENING_INTEGRATION.md) | API integration guide |
+| [Tenant Screening Integration](./api/TENANT_SCREENING_INTEGRATION.md)    | API integration guide           |
 
 ---
 
 ## Community
 
-| Document | Summary |
-|---|---|
-| [Contributing](./community/CONTRIBUTING.md) | How to contribute |
-| [Contribution Guidelines](./community/CONTRIBUTION_GUIDELINES.md) | Detailed guidelines |
-| [Code of Conduct](./community/CODE_OF_CONDUCT.md) | Community standards |
-| [Community Support](./community/COMMUNITY-SUPPORT.md) | Where to get help |
-| [Team Policies](./community/TEAM_POLICIES.md) | Internal team standards |
+| Document                                                          | Summary                 |
+| ----------------------------------------------------------------- | ----------------------- |
+| [Contributing](./community/CONTRIBUTING.md)                       | How to contribute       |
+| [Contribution Guidelines](./community/CONTRIBUTION_GUIDELINES.md) | Detailed guidelines     |
+| [Code of Conduct](./community/CODE_OF_CONDUCT.md)                 | Community standards     |
+| [Community Support](./community/COMMUNITY-SUPPORT.md)             | Where to get help       |
+| [Team Policies](./community/TEAM_POLICIES.md)                     | Internal team standards |
 
 ---
 

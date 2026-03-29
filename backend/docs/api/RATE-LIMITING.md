@@ -6,15 +6,15 @@ Chioma uses NestJS Throttler to protect all endpoints from abuse. Rate limits ar
 
 ## Default Limits
 
-| Endpoint group | Window | Max requests | Notes |
-|---|---|---|---|
-| All endpoints | 1 minute | 100 | Global default |
-| `POST /api/auth/login` | 15 minutes | 10 | Per IP |
-| `POST /api/auth/register` | 1 hour | 5 | Per IP |
-| `POST /api/auth/forgot-password` | 1 hour | 3 | Per IP |
-| `POST /api/payments` | 1 minute | 20 | Per user |
-| `POST /api/auth/stellar/*` | 1 minute | 30 | Per IP |
-| `GET /api/*` (read operations) | 1 minute | 200 | Per user |
+| Endpoint group                   | Window     | Max requests | Notes          |
+| -------------------------------- | ---------- | ------------ | -------------- |
+| All endpoints                    | 1 minute   | 100          | Global default |
+| `POST /api/auth/login`           | 15 minutes | 10           | Per IP         |
+| `POST /api/auth/register`        | 1 hour     | 5            | Per IP         |
+| `POST /api/auth/forgot-password` | 1 hour     | 3            | Per IP         |
+| `POST /api/payments`             | 1 minute   | 20           | Per user       |
+| `POST /api/auth/stellar/*`       | 1 minute   | 30           | Per IP         |
+| `GET /api/*` (read operations)   | 1 minute   | 200          | Per user       |
 
 ---
 
@@ -29,12 +29,12 @@ X-RateLimit-Reset: 1712053860
 Retry-After: 23          ← only present when limit is exceeded
 ```
 
-| Header | Description |
-|---|---|
-| `X-RateLimit-Limit` | Maximum requests allowed in the current window |
-| `X-RateLimit-Remaining` | Requests remaining in the current window |
-| `X-RateLimit-Reset` | Unix timestamp when the window resets |
-| `Retry-After` | Seconds to wait before retrying (only on 429) |
+| Header                  | Description                                    |
+| ----------------------- | ---------------------------------------------- |
+| `X-RateLimit-Limit`     | Maximum requests allowed in the current window |
+| `X-RateLimit-Remaining` | Requests remaining in the current window       |
+| `X-RateLimit-Reset`     | Unix timestamp when the window resets          |
+| `Retry-After`           | Seconds to wait before retrying (only on 429)  |
 
 ---
 
@@ -57,7 +57,11 @@ Retry-After: 23          ← only present when limit is exceeded
 Use exponential back-off when a 429 is received:
 
 ```typescript
-async function fetchWithRetry(url: string, options: RequestInit, maxRetries = 3) {
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit,
+  maxRetries = 3,
+) {
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     const res = await fetch(url, options);
     if (res.status !== 429) return res;

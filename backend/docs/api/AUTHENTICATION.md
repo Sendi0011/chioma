@@ -214,12 +214,12 @@ POST /api/auth/reset-password
 
 ## 6. Role-Based Access
 
-| Role | Value | Dashboard |
-|---|---|---|
-| Tenant | `tenant` | `/` |
+| Role     | Value      | Dashboard    |
+| -------- | ---------- | ------------ |
+| Tenant   | `tenant`   | `/`          |
 | Landlord | `landlord` | `/landlords` |
-| Agent | `agent` | `/agents` |
-| Admin | `admin` | `/landlords` |
+| Agent    | `agent`    | `/agents`    |
+| Admin    | `admin`    | `/landlords` |
 
 The `role` field on the user object uses lowercase. The signup form accepts `TENANT` or `LANDLORD` (uppercase enum).
 

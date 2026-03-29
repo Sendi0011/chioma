@@ -51,7 +51,7 @@ assignees: ""
 - [ ] CPU usage
 - [ ] Build time
 - [ ] Bundle size
-- [ ] Other: ****\_\_\_****
+- [ ] Other: \***\*\_\_\_\*\***
 
 ## 🔗 Related Issues
 

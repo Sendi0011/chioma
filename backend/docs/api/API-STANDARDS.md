@@ -11,8 +11,8 @@ Every public endpoint **must** carry the following decorators from `@nestjs/swag
 ### Controller level
 
 ```typescript
-@ApiTags('Payments')                       // groups endpoints in Swagger UI
-@ApiBearerAuth('JWT-auth')                 // shows the padlock icon
+@ApiTags('Payments') // groups endpoints in Swagger UI
+@ApiBearerAuth('JWT-auth') // shows the padlock icon
 @Controller('payments')
 export class PaymentsController {}
 ```
@@ -73,20 +73,20 @@ export class InitiatePaymentDto {
 
 ## 2. HTTP Status Codes
 
-| Scenario | Status |
-|---|---|
-| Successful GET / list | 200 |
-| Resource created | 201 |
-| No content (DELETE success) | 204 |
-| Validation / schema error | 400 |
-| Unauthenticated | 401 |
-| Authenticated but not authorised | 403 |
-| Resource not found | 404 |
-| Conflict (duplicate, state clash) | 409 |
-| Business rule violation | 422 |
-| Rate limit exceeded | 429 |
-| Unexpected server error | 500 |
-| Downstream service unavailable | 503 |
+| Scenario                          | Status |
+| --------------------------------- | ------ |
+| Successful GET / list             | 200    |
+| Resource created                  | 201    |
+| No content (DELETE success)       | 204    |
+| Validation / schema error         | 400    |
+| Unauthenticated                   | 401    |
+| Authenticated but not authorised  | 403    |
+| Resource not found                | 404    |
+| Conflict (duplicate, state clash) | 409    |
+| Business rule violation           | 422    |
+| Rate limit exceeded               | 429    |
+| Unexpected server error           | 500    |
+| Downstream service unavailable    | 503    |
 
 ---
 
@@ -108,7 +108,7 @@ export class InitiatePaymentDto {
 
 ```json
 {
-  "data": [ { "id": "pay_01HN7K3P2X", "status": "PENDING" } ],
+  "data": [{ "id": "pay_01HN7K3P2X", "status": "PENDING" }],
   "meta": {
     "total": 142,
     "page": 1,

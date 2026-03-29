@@ -8,11 +8,11 @@ All list endpoints use **offset-based pagination** by default. High-throughput o
 
 ### Query parameters
 
-| Parameter | Type | Default | Description |
-|---|---|---|---|
-| `page` | integer ≥ 1 | 1 | Page number |
-| `limit` | integer 1–100 | 20 | Items per page |
-| `sort` | string | `createdAt` | Field to sort by. Prefix with `-` for descending. |
+| Parameter | Type          | Default     | Description                                       |
+| --------- | ------------- | ----------- | ------------------------------------------------- |
+| `page`    | integer ≥ 1   | 1           | Page number                                       |
+| `limit`   | integer 1–100 | 20          | Items per page                                    |
+| `sort`    | string        | `createdAt` | Field to sort by. Prefix with `-` for descending. |
 
 ### Example request
 
@@ -57,11 +57,11 @@ Used for streaming resources where total count is not required or page-jumping i
 
 ### Query parameters
 
-| Parameter | Type | Default | Description |
-|---|---|---|---|
-| `cursor` | string | — | Opaque cursor from the previous page's `meta.nextCursor` |
-| `limit` | integer 1–100 | 20 | Items per page |
-| `direction` | `forward` \| `backward` | `forward` | Scroll direction |
+| Parameter   | Type                    | Default   | Description                                              |
+| ----------- | ----------------------- | --------- | -------------------------------------------------------- |
+| `cursor`    | string                  | —         | Opaque cursor from the previous page's `meta.nextCursor` |
+| `limit`     | integer 1–100           | 20        | Items per page                                           |
+| `direction` | `forward` \| `backward` | `forward` | Scroll direction                                         |
 
 ### Example request
 
@@ -73,7 +73,7 @@ GET /api/audit-logs?cursor=eyJpZCI6InBheV8wMSJ9&limit=20
 
 ```json
 {
-  "data": [ { "id": "log_01HN7K", "action": "PAYMENT_CREATED" } ],
+  "data": [{ "id": "log_01HN7K", "action": "PAYMENT_CREATED" }],
   "meta": {
     "limit": 20,
     "nextCursor": "eyJpZCI6ImxvZ18wMiJ9",
@@ -90,8 +90,8 @@ Cursors are **opaque** base64-encoded strings — clients must not construct the
 
 ## Choosing a Pagination Type
 
-| Use case | Recommendation |
-|---|---|
-| Admin tables, search results | Offset — users need to jump to specific pages |
-| Audit logs, transaction history, feeds | Cursor — append-only, no page-jumping needed |
-| Real-time dashboards | Cursor with `direction: backward` for newest-first |
+| Use case                               | Recommendation                                     |
+| -------------------------------------- | -------------------------------------------------- |
+| Admin tables, search results           | Offset — users need to jump to specific pages      |
+| Audit logs, transaction history, feeds | Cursor — append-only, no page-jumping needed       |
+| Real-time dashboards                   | Cursor with `direction: backward` for newest-first |

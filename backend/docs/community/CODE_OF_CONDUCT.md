@@ -5,11 +5,12 @@ As contributors and maintainers to the backend of Chioma, we pledge to make our 
 ## 1. Professional Standards
 
 We expect all contributors to adhere to high professional standards:
-*   Use welcoming and inclusive language.
-*   Be respectful of differing viewpoints and experiences.
-*   Gracefully accept constructive criticism.
-*   Focus on what is best for the community and project.
-*   Show empathy towards other community members.
+
+- Use welcoming and inclusive language.
+- Be respectful of differing viewpoints and experiences.
+- Gracefully accept constructive criticism.
+- Focus on what is best for the community and project.
+- Show empathy towards other community members.
 
 ## 2. Respect and Inclusion
 
@@ -17,21 +18,21 @@ Chioma is built for a diverse ecosystem. We require maintaining an environment o
 
 ## 3. Communication Guidelines
 
-*   **Public Channels First**: Default to public channels (e.g., standard GitHub issues and public project threads) for technical discussions so that everyone can learn.
-*   **Clarity**: Ensure written communication is clear, factual, and devoid of personal attacks.
-*   **Assume Positive Intent**: Assume others are making their best effort. Ask clarifying questions rather than jumping to conclusions.
+- **Public Channels First**: Default to public channels (e.g., standard GitHub issues and public project threads) for technical discussions so that everyone can learn.
+- **Clarity**: Ensure written communication is clear, factual, and devoid of personal attacks.
+- **Assume Positive Intent**: Assume others are making their best effort. Ask clarifying questions rather than jumping to conclusions.
 
 ## 4. Collaboration Expectations
 
-*   **Constructive Feedback**: In code reviews, address the code, not the person. Suggest alternatives.
-*   **Shared Ownership**: Remember that we are all responsible for the health of the project.
-*   **Documentation**: Help maintain documentation so newer members can participate.
+- **Constructive Feedback**: In code reviews, address the code, not the person. Suggest alternatives.
+- **Shared Ownership**: Remember that we are all responsible for the health of the project.
+- **Documentation**: Help maintain documentation so newer members can participate.
 
 ## 5. Conflict Resolution
 
-*   **Direct Resolution**: Attempt to respectfully resolve conflicts directly with the involved party if comfortable.
-*   **Involve Maintainers**: If the conflict escalates or mediation is required, reach out to a team lead. We value restoring community harmony.
-*   **Take a Step Back**: Sometimes taking a 24-hour break from a discussion can reduce tension.
+- **Direct Resolution**: Attempt to respectfully resolve conflicts directly with the involved party if comfortable.
+- **Involve Maintainers**: If the conflict escalates or mediation is required, reach out to a team lead. We value restoring community harmony.
+- **Take a Step Back**: Sometimes taking a 24-hour break from a discussion can reduce tension.
 
 ## 6. Reporting Procedures
 
@@ -40,10 +41,11 @@ Instances of abusive, harassing, or otherwise unacceptable behavior must be repo
 ## 7. Consequences
 
 Violations of this Code of Conduct may result in the following based on severity:
-*   **Correction**: A private, written warning outlining the inappropriate behavior.
-*   **Warning**: A formal warning with consequences for continued behavior.
-*   **Temporary Ban**: A temporary ban from project repositories, discord channels, or mailing lists.
-*   **Permanent Ban**: A permanent ban from any sort of public interaction within the project.
+
+- **Correction**: A private, written warning outlining the inappropriate behavior.
+- **Warning**: A formal warning with consequences for continued behavior.
+- **Temporary Ban**: A temporary ban from project repositories, discord channels, or mailing lists.
+- **Permanent Ban**: A permanent ban from any sort of public interaction within the project.
 
 ## 8. Training
 

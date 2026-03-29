@@ -46,9 +46,7 @@ export class MessagingController {
   @Post('rooms')
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Create or find a direct message room' })
-  async createRoom(
-    @Body() body: { userId: string; participantId: string },
-  ) {
+  async createRoom(@Body() body: { userId: string; participantId: string }) {
     return this.messagingService.findOrCreateRoom(
       body.userId,
       body.participantId,
