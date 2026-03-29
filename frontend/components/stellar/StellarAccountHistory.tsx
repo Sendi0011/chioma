@@ -91,8 +91,7 @@ export function StellarAccountHistory({
                 }`}
               >
                 {isIncoming ? '+' : '-'}
-                {parseFloat(tx.amount).toFixed(2)}{' '}
-                {tx.assetCode ?? 'XLM'}
+                {parseFloat(tx.amount).toFixed(2)} {tx.assetCode ?? 'XLM'}
               </p>
               <span
                 className={`text-[10px] px-1.5 py-0.5 rounded-full ${

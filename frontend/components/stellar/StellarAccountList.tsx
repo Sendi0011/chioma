@@ -67,8 +67,7 @@ export function StellarAccountList({
             >
               <div className="flex items-center justify-between mb-1">
                 <span className="font-mono text-xs text-slate-300 truncate max-w-[180px]">
-                  {account.publicKey.slice(0, 8)}…
-                  {account.publicKey.slice(-6)}
+                  {account.publicKey.slice(0, 8)}…{account.publicKey.slice(-6)}
                 </span>
                 <span
                   className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${

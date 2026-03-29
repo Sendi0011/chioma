@@ -2,7 +2,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Globe, Check, ChevronDown } from 'lucide-react';
-import { useTranslation, LOCALE_OPTIONS, type SupportedLocale } from '@/lib/i18n';
+import {
+  useTranslation,
+  LOCALE_OPTIONS,
+  type SupportedLocale,
+} from '@/lib/i18n';
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -13,7 +17,8 @@ export function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const current = LOCALE_OPTIONS.find((o) => o.code === locale) ?? LOCALE_OPTIONS[0];
+  const current =
+    LOCALE_OPTIONS.find((o) => o.code === locale) ?? LOCALE_OPTIONS[0];
 
   // Sync html[lang] whenever locale changes — inside an effect to satisfy the
   // react-hooks/immutability rule (no direct DOM mutation in event handlers).
@@ -48,7 +53,10 @@ export function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
       >
         <Globe size={15} />
         <span>{current.nativeLabel}</span>
-        <ChevronDown size={13} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          size={13}
+          className={`transition-transform ${open ? 'rotate-180' : ''}`}
+        />
       </button>
 
       {open && (
@@ -58,7 +66,11 @@ export function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
           className="absolute right-0 mt-1 w-40 bg-slate-800 border border-white/10 rounded-xl shadow-xl overflow-hidden z-50"
         >
           {LOCALE_OPTIONS.map((option) => (
-            <li key={option.code} role="option" aria-selected={locale === option.code}>
+            <li
+              key={option.code}
+              role="option"
+              aria-selected={locale === option.code}
+            >
               <button
                 onClick={() => handleSelect(option.code)}
                 className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${

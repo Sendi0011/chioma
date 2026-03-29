@@ -53,7 +53,7 @@ export function useMessaging(): UseMessagingReturn {
     }
   }, []);
 
-  // ── Fetch rooms on mount ────────────────────────────────────────────────
+  // ── Fetch rooms on mount ──────────────────────────────────────────────
   useEffect(() => {
     if (!user) return;
 
@@ -74,7 +74,7 @@ export function useMessaging(): UseMessagingReturn {
     fetchRooms();
   }, [user]);
 
-  // ── Socket.io connection ────────────────────────────────────────────────
+  // ── Socket.io connection ──────────────────────────────────────────────
   useEffect(() => {
     if (!accessToken || !user) return;
 
@@ -123,7 +123,7 @@ export function useMessaging(): UseMessagingReturn {
     };
   }, [accessToken, user]);
 
-  // ── Select a room ───────────────────────────────────────────────────────
+  // ── Select a room ─────────────────────────────────────────────────────
   const selectRoom = useCallback(
     (room: ChatRoom) => {
       setActiveRoom(room);
@@ -158,18 +158,13 @@ export function useMessaging(): UseMessagingReturn {
     [activeRoom, markRoomAsRead],
   );
 
-  // ── Send a message ──────────────────────────────────────────────────────
+  // ── Send a message ────────────────────────────────────────────────────
   const sendMessage = useCallback(
     (content: string, attachment?: File) => {
-      if (
-        !activeRoom ||
-        (!content.trim() && !attachment) ||
-        !socketRef.current
-      )
+      if (!activeRoom || (!content.trim() && !attachment) || !socketRef.current)
         return;
 
       if (attachment) {
-        // Upload file first, then emit with attachment URL
         const formData = new FormData();
         formData.append('file', attachment);
         if (content.trim()) formData.append('content', content.trim());
@@ -200,7 +195,7 @@ export function useMessaging(): UseMessagingReturn {
     [activeRoom],
   );
 
-  // ── Typing indicator ────────────────────────────────────────────────────
+  // ── Typing indicator ──────────────────────────────────────────────────
   const sendTyping = useCallback(
     (isTyping: boolean) => {
       if (!activeRoom || !user || !socketRef.current) return;
@@ -216,7 +211,7 @@ export function useMessaging(): UseMessagingReturn {
     [activeRoom, user],
   );
 
-  // ── Create a new room ───────────────────────────────────────────────────
+  // ── Create a new room ─────────────────────────────────────────────────
   const createRoom = useCallback(
     async (participantId: string): Promise<ChatRoom | null> => {
       try {
