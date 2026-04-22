@@ -3,18 +3,12 @@ name: Backend CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - develop
-      - main
     tags:
       - 'v*'
     paths:
       - 'backend/**'
       - '.github/workflows/backend-ci-cd.yml'
   pull_request:
-    branches:
-      - develop
-      - main
     paths:
       - 'backend/**'
       - '.github/workflows/backend-ci-cd.yml'
@@ -80,6 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     name: E2E Tests
     needs: test
+    if: github.event_name == 'push'
 
     services:
       postgres:
@@ -155,6 +150,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Migration rollback verify
     needs: test
+    if: github.event_name == 'push'
 
     services:
       postgres:
@@ -214,6 +210,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Security Scan
     needs: test
+    if: github.event_name == 'push'
     permissions:
       contents: read
       security-events: write
@@ -247,6 +244,7 @@ jobs:
     runs-on: ubuntu-latest
     name: API Docs & Contract
     needs: [test, e2e-tests]
+    if: github.event_name == 'push'
     continue-on-error: true
     services:
       postgres:
@@ -383,7 +381,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build & Push Docker
     needs: [build, e2e-tests, migration-rollback-verify]
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+    if: github.event_name == 'push'
     permissions:
       contents: read
       packages: write
@@ -430,7 +428,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to Staging
     needs: docker
-    if: github.ref == 'refs/heads/develop'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
 
     steps:
       - name: Checkout code
@@ -465,7 +463,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to Production
     needs: docker
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: production
       url: https://chioma-sqq1.onrender.com
