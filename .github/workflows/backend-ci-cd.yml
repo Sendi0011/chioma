@@ -3,11 +3,11 @@ name: Backend CI/CD Pipeline
 
 on:
   push:
-    tags:
-      - 'v*'
     paths:
       - 'backend/**'
       - '.github/workflows/backend-ci-cd.yml'
+    tags:
+      - 'v*'
   pull_request:
     paths:
       - 'backend/**'
