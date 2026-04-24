@@ -22,6 +22,7 @@ Welcome to the Chioma backend documentation hub. This index covers all aspects o
 | [Security](#security)                        | Encryption, threat model, compliance             |
 | [Integrations](#integrations)                | Third-party services                             |
 | [Support](#support)                          | Support procedures, SLAs, maintenance schedules  |
+| [Incident Response](#incident-response)      | Incident classification, escalation, runbooks     |
 | [Community](#community)                      | Contributing, code of conduct, team policies     |
 
 ---
@@ -228,6 +229,14 @@ Security features active in every request:
 | [API Integration Procedures](./integrations/API_INTEGRATION_PROCEDURES.md) | Third-party API integration, webhooks, testing, error handling, monitoring |
 | [Tenant Screening](./integrations/TENANT_SCREENING_PROVIDER_RESEARCH.md)   | Third-party screening providers                                            |
 | [Tenant Screening Integration](./api/TENANT_SCREENING_INTEGRATION.md)      | API integration guide                                                      |
+
+---
+
+## Incident Response
+
+| Document                                                   | Summary                                                              |
+| ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| [Incident Response Procedures](./INCIDENT_RESPONSE.md)     | Classification, detection, escalation, communication, runbooks, PIR  |
 
 ---
 
